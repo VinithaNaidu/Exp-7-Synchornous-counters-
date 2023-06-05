@@ -51,11 +51,39 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by : D.VINITHA NAIDU 
+RegisterNumber :  2122222230175
+# UPCOUNTER:
+```
+module upc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+		A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+		A[1]=(((A[2])&(A[3]))^A[1]);
+		A[2]=((A[3])^A[2]);
+		A[3]=1^A[3];
+end
+endmodule
+```
+# DOWNCOUNTER
+```
+module downc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+	A[0]=((((~A[1])&(~A[2]))&A[3])^A[0]);
+	A[1]=(((A[2])&(A[3]))^A[1]);
+	A[2]=((A[3])^A[2]);
+	A[3]=1^A[3];
+end
+endmodule
+```
+
 
 
 
@@ -63,6 +91,11 @@ RegisterNumber:
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+### UPCOUNTER
+![image](https://github.com/VinithaNaidu/Exp-7-Synchornous-counters-/assets/121166004/c9f6d0a0-bdc8-49b8-88de-38cda38da1a1)
+### DOWNCOUNER
+![image](https://github.com/VinithaNaidu/Exp-7-Synchornous-counters-/assets/121166004/0ba254c9-c190-4aa7-8d8c-9b1564d6f01b)
+
 
 
 
@@ -73,12 +106,16 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS FOR COUNTER  
+### UPCOUNTER
+![image](https://github.com/VinithaNaidu/Exp-7-Synchornous-counters-/assets/121166004/f325fbb8-a2b4-4353-8c04-284fe5e7e003)
+### DOWNCOUNTER
+![image](https://github.com/VinithaNaidu/Exp-7-Synchornous-counters-/assets/121166004/132ee75e-821c-4879-83fc-d417b5f8c226)
+# TRUTH TABLE
+### UP COUNTER:
+![image](https://github.com/VinithaNaidu/Exp-7-Synchornous-counters-/assets/121166004/2a7fb11c-e6a6-43e9-bced-449888fd2c64)
+### DOWN COUNTER:
+![image](https://github.com/VinithaNaidu/Exp-7-Synchornous-counters-/assets/121166004/c00c3b8a-23a3-42b5-b599-dfbc96a2609e)
 
-
-
-
-
-### TRUTH TABLE 
 
 
 
@@ -86,3 +123,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
